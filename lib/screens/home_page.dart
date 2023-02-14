@@ -26,147 +26,148 @@ class HomePage extends StatelessWidget
             body:SingleChildScrollView(
               child: Container(
                 height: deviceHeight,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                   Container(
-                     height: isLandScpe?deviceHeight*0.8:deviceHeight*0.7,
-                     child: Column(
-                       children: [
-                         Stack(
-                           children: [
-                             Container(
-                               height: isLandScpe?0.4 * (deviceHeight - MediaQuery
-                                   .of(context)
-                                   .padding
-                                   .top)
-                                   :0.5 * (deviceHeight - MediaQuery
-                                   .of(context)
-                                   .padding
-                                   .top),
-                               decoration: BoxDecoration(
-                                 color: HexColor('4d6d68'),
-                                 borderRadius: BorderRadius.only(
-                                   bottomLeft: Radius.circular(70),
-                                   bottomRight: Radius.circular(70),
+                child: SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                     Container(
+                       height: isLandScpe?deviceHeight:deviceHeight*0.7,
+                       child: Column(
+                         children: [
+                           Stack(
+                             children: [
+                               Container(
+                                 height: isLandScpe?0.4 * (deviceHeight - MediaQuery
+                                     .of(context)
+                                     .padding
+                                     .top)
+                                     :0.5 * (deviceHeight - MediaQuery
+                                     .of(context)
+                                     .padding
+                                     .top),
+                                 decoration: BoxDecoration(
+                                   color: HexColor('4d6d68'),
+                                   borderRadius: BorderRadius.only(
+                                     bottomLeft: Radius.circular(70),
+                                     bottomRight: Radius.circular(70),
+                                   ),
                                  ),
                                ),
-                             ),
-                             Padding(
-                               padding:  EdgeInsets.only(top:isLandScpe?10:deviceHeight*0.05, right: 15,),
-                               child: Column(
-                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                 children: [
-                                   Row(
-                                     children: [
-                                       IconButton(
-                                         onPressed: () {},
-                                         icon: Icon(
-                                           Icons.list_outlined,
-                                           size: 25,
-                                           color: Colors.white,
-                                         ),
-                                       ),
-                                       Spacer(),
-                                       IconButton(
-                                         onPressed: () {},
-                                         icon: Icon(
-                                           Icons.search,
-                                           size: 25,
-                                           color: Colors.white,
-                                         ),
-                                       ),
-                                       Container(
-                                         height: 35,
-                                         width: 35,
-                                         child: Image(
-                                           image: AssetImage(
-                                               'assets/images/profile.jpg'),
-                                         ),
-                                       ),
-                                     ],
-                                   ),
-                                   SizedBox(
-                                     height: isLandScpe?5:deviceHeight*0.05,
-                                   ),
-                                   Container(
-                                     padding: EdgeInsets.only(left: deviceWidth*0.08),
-                                     child: Text(
-                                       'Explore',
-                                       textAlign: TextAlign.center,
-                                       style: TextStyle(
-                                         fontSize: 40,
-                                         color: Colors.white,
-                                         fontWeight: FontWeight.w500,
-                                       ),),
-                                   ),
-                                   SizedBox(
-                                     height: isLandScpe?5:deviceHeight*0.07,
-                                   ),
-                                   Container(
-                                     padding: EdgeInsets.only(left: deviceWidth*0.09),
-                                     child: CarouselSlider(
-                                       items: cubit
-                                           .banners
-                                           .map((e) =>
-                                           GestureDetector(
-                                             onTap: ()
-                                             {
-                                               navigateTo(context, deatilsPage(model: e,));
-                                             },
-                                             child: Container(
-                                                 clipBehavior: Clip.antiAliasWithSaveLayer,
-                                                 // height: isLandScpe?deviceHeight*0.2:270,
-                                                 decoration: BoxDecoration(
-                                                   borderRadius: BorderRadius.circular(20),
-
-                                                 ),
-                                                 child: Image(
-                                                     image: AssetImage('${e.image}'))),
+                               Padding(
+                                 padding:  EdgeInsets.only(top:isLandScpe?10:deviceHeight*0.05, right: 15,),
+                                 child: Column(
+                                   crossAxisAlignment: CrossAxisAlignment.start,
+                                   children: [
+                                     Row(
+                                       children: [
+                                         IconButton(
+                                           onPressed: () {},
+                                           icon: Icon(
+                                             Icons.list_outlined,
+                                             size: 25,
+                                             color: Colors.white,
                                            ),
-                                       ).toList(),
-                                       options: CarouselOptions(
-                                         height: isLandScpe?deviceHeight*0.4:deviceHeight*0.3,
-                                         initialPage: 0,
-                                         reverse: false,
-                                         autoPlay: false,
-                                         viewportFraction:isLandScpe?0.4:0.6,
-                                         enableInfiniteScroll: false,
-                                         scrollDirection: Axis.horizontal,
-                                         aspectRatio: 16 / 9,
+                                         ),
+                                         Spacer(),
+                                         IconButton(
+                                           onPressed: () {},
+                                           icon: Icon(
+                                             Icons.search,
+                                             size: 25,
+                                             color: Colors.white,
+                                           ),
+                                         ),
+                                         Container(
+                                           height: 35,
+                                           width: 35,
+                                           child: Image(
+                                             image: AssetImage(
+                                                 'assets/images/profile.jpg'),
+                                           ),
+                                         ),
+                                       ],
+                                     ),
+                                     SizedBox(
+                                       height: isLandScpe?5:deviceHeight*0.05,
+                                     ),
+                                     Container(
+                                       padding: EdgeInsets.only(left: deviceWidth*0.08),
+                                       child: Text(
+                                         'Explore',
+                                         textAlign: TextAlign.center,
+                                         style: TextStyle(
+                                           fontSize: 40,
+                                           color: Colors.white,
+                                           fontWeight: FontWeight.w500,
+                                         ),),
+                                     ),
+                                     SizedBox(
+                                       height: isLandScpe?5:deviceHeight*0.07,
+                                     ),
+                                     Container(
+                                       padding: EdgeInsets.only(left: deviceWidth*0.09),
+                                       child: CarouselSlider(
+                                         items: cubit
+                                             .banners
+                                             .map((e) =>
+                                             GestureDetector(
+                                               onTap: ()
+                                               {
+                                                 navigateTo(context, deatilsPage(model: e,));
+                                               },
+                                               child: Container(
+                                                   clipBehavior: Clip.antiAliasWithSaveLayer,
+                                                   // height: isLandScpe?deviceHeight*0.2:270,
+                                                   decoration: BoxDecoration(
+                                                     borderRadius: BorderRadius.circular(20),
+
+                                                   ),
+                                                   child: Image(
+                                                       image: AssetImage('${e.image}'))),
+                                             ),
+                                         ).toList(),
+                                         options: CarouselOptions(
+                                           height: isLandScpe?deviceHeight*0.4:deviceHeight*0.3,
+                                           initialPage: 0,
+                                           reverse: false,
+                                           autoPlay: false,
+                                           viewportFraction:isLandScpe?0.4:0.6,
+                                           enableInfiniteScroll: false,
+                                           scrollDirection: Axis.horizontal,
+                                           aspectRatio: 16 / 9,
+                                         ),
                                        ),
                                      ),
-                                   ),
-                                 ],
+                                   ],
+                                 ),
                                ),
-                             ),
-                           ],
-                         ),
-                         SizedBox(height: isLandScpe?deviceHeight*0.04:deviceHeight*0.03,),
-                         Container(
-                           height: deviceHeight*0.09,
-                           margin: EdgeInsets.symmetric(horizontal:isLandScpe?0.22*deviceWidth: 0 ),
-                           padding:  EdgeInsets.symmetric(horizontal:isLandScpe?deviceWidth*0.078: deviceWidth*0.07),
-                           child: ListView.separated(
-                             scrollDirection: Axis.horizontal,
-                             itemBuilder: (context,index)=>Button(
-                               label:cubit.categories[index],
-                               onTap: (){
-                                 cubit.chageButtonSelected(index);
-                               },
-                               color: cubit.indexCategory == cubit.indexList[index]?HexColor('4d6d68'):Colors.white,
-                               textColor: cubit.indexCategory == cubit.indexList[index]?Colors.white:Colors.black,
-                             ),
-                             separatorBuilder: (context,index)=>SizedBox(width: 30,),
-                             itemCount:cubit.categories.length,
+                             ],
                            ),
-                         ),
-                       ],
+                           SizedBox(height: isLandScpe?deviceHeight*0.04:deviceHeight*0.03,),
+                           Container(
+                             height: deviceHeight*0.09,
+                             margin: EdgeInsets.symmetric(horizontal:isLandScpe?0.22*deviceWidth: 0 ),
+                             padding:  EdgeInsets.symmetric(horizontal:isLandScpe?deviceWidth*0.078: deviceWidth*0.07),
+                             child: ListView.separated(
+                               scrollDirection: Axis.horizontal,
+                               itemBuilder: (context,index)=>Button(
+                                 label:cubit.categories[index],
+                                 onTap: (){
+                                   cubit.chageButtonSelected(index);
+                                 },
+                                 color: cubit.indexCategory == cubit.indexList[index]?HexColor('4d6d68'):Colors.white,
+                                 textColor: cubit.indexCategory == cubit.indexList[index]?Colors.white:Colors.black,
+                               ),
+                               separatorBuilder: (context,index)=>SizedBox(width: 30,),
+                               itemCount:cubit.categories.length,
+                             ),
+                           ),
+                         ],
+                       ),
                      ),
-                   ),
-                    SizedBox(height: deviceHeight*0.01,),
-                    Container(
-                      child: Expanded(
+                      SizedBox(height: deviceHeight*0.01,),
+                      Container(
+                        height: isLandScpe?deviceHeight*0.78:deviceHeight*0.3,
                         child: GridView.count(
 
                           shrinkWrap: true,
@@ -186,8 +187,8 @@ class HomePage extends StatelessWidget
                           ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),
